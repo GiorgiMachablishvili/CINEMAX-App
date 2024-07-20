@@ -9,23 +9,62 @@
 /* Begin PBXBuildFile section */
 		E34931762C4BE93000138466 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E34931752C4BE93000138466 /* AppDelegate.swift */; };
 		E34931782C4BE93000138466 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E34931772C4BE93000138466 /* SceneDelegate.swift */; };
-		E349317A2C4BE93000138466 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E34931792C4BE93000138466 /* ViewController.swift */; };
-		E349317D2C4BE93000138466 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E349317B2C4BE93000138466 /* Main.storyboard */; };
+		E349317A2C4BE93000138466 /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E34931792C4BE93000138466 /* OnboardingViewController.swift */; };
 		E34931802C4BE93000138466 /* CINEMAX_App.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E349317E2C4BE93000138466 /* CINEMAX_App.xcdatamodeld */; };
 		E34931822C4BE93200138466 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E34931812C4BE93200138466 /* Assets.xcassets */; };
 		E34931852C4BE93200138466 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E34931832C4BE93200138466 /* LaunchScreen.storyboard */; };
+		E349319F2C4BEB5600138466 /* MovieManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E349319E2C4BEB5600138466 /* MovieManager.swift */; };
+		E34931A12C4BEB8900138466 /* OnboardingData.swift in Sources */ = {isa = PBXBuildFile; fileRef = E34931A02C4BEB8900138466 /* OnboardingData.swift */; };
+		E34931A32C4BEBA700138466 /* MovieResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = E34931A22C4BEBA700138466 /* MovieResponse.swift */; };
+		E34931A52C4BEBB200138466 /* Movie.swift in Sources */ = {isa = PBXBuildFile; fileRef = E34931A42C4BEBB200138466 /* Movie.swift */; };
+		E34931AC2C4BEBEA00138466 /* Montserrat-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E34931A62C4BEBE900138466 /* Montserrat-Bold.ttf */; };
+		E34931AD2C4BEBEA00138466 /* Montserrat-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E34931A72C4BEBE900138466 /* Montserrat-SemiBold.ttf */; };
+		E34931AE2C4BEBEA00138466 /* Montserrat-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E34931A82C4BEBE900138466 /* Montserrat-Regular.ttf */; };
+		E34931AF2C4BEBEA00138466 /* Montserrat-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E34931A92C4BEBE900138466 /* Montserrat-Medium.ttf */; };
+		E34931B02C4BEBEA00138466 /* Montserrat-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E34931AA2C4BEBE900138466 /* Montserrat-Thin.ttf */; };
+		E34931B12C4BEBEA00138466 /* Montserrat-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E34931AB2C4BEBE900138466 /* Montserrat-ExtraBold.ttf */; };
+		E34931B32C4BEBF400138466 /* UIFont+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E34931B22C4BEBF400138466 /* UIFont+Extension.swift */; };
+		E34931B72C4BEC0300138466 /* UITableViewCell+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E34931B42C4BEC0200138466 /* UITableViewCell+Extension.swift */; };
+		E34931B82C4BEC0300138466 /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E34931B52C4BEC0300138466 /* UIColor+Extension.swift */; };
+		E34931B92C4BEC0300138466 /* UITableView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E34931B62C4BEC0300138466 /* UITableView+Extension.swift */; };
+		E34931BB2C4BEC1B00138466 /* Constraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = E34931BA2C4BEC1B00138466 /* Constraints.swift */; };
+		E34931BD2C4BEC4B00138466 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E34931BC2C4BEC4B00138466 /* NetworkManager.swift */; };
+		E34931BF2C4BEC9000138466 /* OnboardingViewModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = E34931BE2C4BEC9000138466 /* OnboardingViewModelProtocol.swift */; };
+		E34931C12C4BECA400138466 /* OnboardingDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = E34931C02C4BECA400138466 /* OnboardingDataSource.swift */; };
+		E34931C32C4BECB200138466 /* OnboardingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E34931C22C4BECB200138466 /* OnboardingCell.swift */; };
+		E34931C62C4BECDA00138466 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = E34931C52C4BECDA00138466 /* Kingfisher */; };
+		E34931C92C4BECE000138466 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = E34931C82C4BECE000138466 /* SnapKit */; };
+		E34931CB2C4BECE000138466 /* SnapKit-Dynamic in Frameworks */ = {isa = PBXBuildFile; productRef = E34931CA2C4BECE000138466 /* SnapKit-Dynamic */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		E34931722C4BE93000138466 /* CINEMAX App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "CINEMAX App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E34931752C4BE93000138466 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E34931772C4BE93000138466 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		E34931792C4BE93000138466 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		E349317C2C4BE93000138466 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		E34931792C4BE93000138466 /* OnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
 		E349317F2C4BE93000138466 /* CINEMAX_App.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CINEMAX_App.xcdatamodel; sourceTree = "<group>"; };
 		E34931812C4BE93200138466 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E34931842C4BE93200138466 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E34931862C4BE93200138466 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E349319E2C4BEB5600138466 /* MovieManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieManager.swift; sourceTree = "<group>"; };
+		E34931A02C4BEB8900138466 /* OnboardingData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingData.swift; sourceTree = "<group>"; };
+		E34931A22C4BEBA700138466 /* MovieResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieResponse.swift; sourceTree = "<group>"; };
+		E34931A42C4BEBB200138466 /* Movie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Movie.swift; sourceTree = "<group>"; };
+		E34931A62C4BEBE900138466 /* Montserrat-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Bold.ttf"; sourceTree = "<group>"; };
+		E34931A72C4BEBE900138466 /* Montserrat-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-SemiBold.ttf"; sourceTree = "<group>"; };
+		E34931A82C4BEBE900138466 /* Montserrat-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Regular.ttf"; sourceTree = "<group>"; };
+		E34931A92C4BEBE900138466 /* Montserrat-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Medium.ttf"; sourceTree = "<group>"; };
+		E34931AA2C4BEBE900138466 /* Montserrat-Thin.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Thin.ttf"; sourceTree = "<group>"; };
+		E34931AB2C4BEBE900138466 /* Montserrat-ExtraBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-ExtraBold.ttf"; sourceTree = "<group>"; };
+		E34931B22C4BEBF400138466 /* UIFont+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIFont+Extension.swift"; sourceTree = "<group>"; };
+		E34931B42C4BEC0200138466 /* UITableViewCell+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITableViewCell+Extension.swift"; sourceTree = "<group>"; };
+		E34931B52C4BEC0300138466 /* UIColor+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
+		E34931B62C4BEC0300138466 /* UITableView+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITableView+Extension.swift"; sourceTree = "<group>"; };
+		E34931BA2C4BEC1B00138466 /* Constraints.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constraints.swift; sourceTree = "<group>"; };
+		E34931BC2C4BEC4B00138466 /* NetworkManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		E34931BE2C4BEC9000138466 /* OnboardingViewModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewModelProtocol.swift; sourceTree = "<group>"; };
+		E34931C02C4BECA400138466 /* OnboardingDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardingDataSource.swift; sourceTree = "<group>"; };
+		E34931C22C4BECB200138466 /* OnboardingCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardingCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -33,6 +72,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E34931C62C4BECDA00138466 /* Kingfisher in Frameworks */,
+				E34931C92C4BECE000138466 /* SnapKit in Frameworks */,
+				E34931CB2C4BECE000138466 /* SnapKit-Dynamic in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -58,16 +100,178 @@
 		E34931742C4BE93000138466 /* CINEMAX App */ = {
 			isa = PBXGroup;
 			children = (
-				E34931752C4BE93000138466 /* AppDelegate.swift */,
-				E34931772C4BE93000138466 /* SceneDelegate.swift */,
-				E34931792C4BE93000138466 /* ViewController.swift */,
-				E349317B2C4BE93000138466 /* Main.storyboard */,
-				E34931812C4BE93200138466 /* Assets.xcassets */,
-				E34931832C4BE93200138466 /* LaunchScreen.storyboard */,
-				E34931862C4BE93200138466 /* Info.plist */,
+				E34931922C4BE9E500138466 /* Api */,
+				E34931912C4BE9E000138466 /* App */,
+				E34931902C4BE9D800138466 /* Domain */,
+				E349318F2C4BE9D000138466 /* Resources */,
+				E349318E2C4BE9C400138466 /* Infrastructure */,
+				E349318D2C4BE9B900138466 /* Presentation */,
+				E349318C2C4BE9A800138466 /* Supporting File */,
 				E349317E2C4BE93000138466 /* CINEMAX_App.xcdatamodeld */,
 			);
 			path = "CINEMAX App";
+			sourceTree = "<group>";
+		};
+		E349318C2C4BE9A800138466 /* Supporting File */ = {
+			isa = PBXGroup;
+			children = (
+				E34931832C4BE93200138466 /* LaunchScreen.storyboard */,
+				E34931862C4BE93200138466 /* Info.plist */,
+			);
+			path = "Supporting File";
+			sourceTree = "<group>";
+		};
+		E349318D2C4BE9B900138466 /* Presentation */ = {
+			isa = PBXGroup;
+			children = (
+				E34931992C4BEA6800138466 /* Scenes */,
+			);
+			path = Presentation;
+			sourceTree = "<group>";
+		};
+		E349318E2C4BE9C400138466 /* Infrastructure */ = {
+			isa = PBXGroup;
+			children = (
+				E34931982C4BEA4400138466 /* NetworkManager */,
+			);
+			path = Infrastructure;
+			sourceTree = "<group>";
+		};
+		E349318F2C4BE9D000138466 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				E34931972C4BEA3300138466 /* Fonts */,
+				E34931962C4BEA2500138466 /* Extensions */,
+				E34931952C4BEA1A00138466 /* Helper */,
+				E34931812C4BE93200138466 /* Assets.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		E34931902C4BE9D800138466 /* Domain */ = {
+			isa = PBXGroup;
+			children = (
+				E34931942C4BEA0400138466 /* OnboardingData */,
+				E34931932C4BE9FC00138466 /* Movies */,
+			);
+			path = Domain;
+			sourceTree = "<group>";
+		};
+		E34931912C4BE9E000138466 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				E34931752C4BE93000138466 /* AppDelegate.swift */,
+				E34931772C4BE93000138466 /* SceneDelegate.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		E34931922C4BE9E500138466 /* Api */ = {
+			isa = PBXGroup;
+			children = (
+				E349319E2C4BEB5600138466 /* MovieManager.swift */,
+			);
+			path = Api;
+			sourceTree = "<group>";
+		};
+		E34931932C4BE9FC00138466 /* Movies */ = {
+			isa = PBXGroup;
+			children = (
+				E34931A22C4BEBA700138466 /* MovieResponse.swift */,
+				E34931A42C4BEBB200138466 /* Movie.swift */,
+			);
+			path = Movies;
+			sourceTree = "<group>";
+		};
+		E34931942C4BEA0400138466 /* OnboardingData */ = {
+			isa = PBXGroup;
+			children = (
+				E34931A02C4BEB8900138466 /* OnboardingData.swift */,
+			);
+			path = OnboardingData;
+			sourceTree = "<group>";
+		};
+		E34931952C4BEA1A00138466 /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				E34931BA2C4BEC1B00138466 /* Constraints.swift */,
+			);
+			path = Helper;
+			sourceTree = "<group>";
+		};
+		E34931962C4BEA2500138466 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				E34931B22C4BEBF400138466 /* UIFont+Extension.swift */,
+				E34931B52C4BEC0300138466 /* UIColor+Extension.swift */,
+				E34931B62C4BEC0300138466 /* UITableView+Extension.swift */,
+				E34931B42C4BEC0200138466 /* UITableViewCell+Extension.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		E34931972C4BEA3300138466 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				E34931A62C4BEBE900138466 /* Montserrat-Bold.ttf */,
+				E34931AB2C4BEBE900138466 /* Montserrat-ExtraBold.ttf */,
+				E34931A92C4BEBE900138466 /* Montserrat-Medium.ttf */,
+				E34931A82C4BEBE900138466 /* Montserrat-Regular.ttf */,
+				E34931A72C4BEBE900138466 /* Montserrat-SemiBold.ttf */,
+				E34931AA2C4BEBE900138466 /* Montserrat-Thin.ttf */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
+		E34931982C4BEA4400138466 /* NetworkManager */ = {
+			isa = PBXGroup;
+			children = (
+				E34931BC2C4BEC4B00138466 /* NetworkManager.swift */,
+			);
+			path = NetworkManager;
+			sourceTree = "<group>";
+		};
+		E34931992C4BEA6800138466 /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
+				E34931792C4BE93000138466 /* OnboardingViewController.swift */,
+				E349319D2C4BEA9900138466 /* Moviea */,
+				E349319A2C4BEA7900138466 /* OnboardingView */,
+			);
+			path = Scenes;
+			sourceTree = "<group>";
+		};
+		E349319A2C4BEA7900138466 /* OnboardingView */ = {
+			isa = PBXGroup;
+			children = (
+				E349319C2C4BEA8900138466 /* OnboardingViewModel */,
+				E349319B2C4BEA8100138466 /* OnboardingCell */,
+			);
+			path = OnboardingView;
+			sourceTree = "<group>";
+		};
+		E349319B2C4BEA8100138466 /* OnboardingCell */ = {
+			isa = PBXGroup;
+			children = (
+				E34931C22C4BECB200138466 /* OnboardingCell.swift */,
+			);
+			path = OnboardingCell;
+			sourceTree = "<group>";
+		};
+		E349319C2C4BEA8900138466 /* OnboardingViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				E34931BE2C4BEC9000138466 /* OnboardingViewModelProtocol.swift */,
+				E34931C02C4BECA400138466 /* OnboardingDataSource.swift */,
+			);
+			path = OnboardingViewModel;
+			sourceTree = "<group>";
+		};
+		E349319D2C4BEA9900138466 /* Moviea */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Moviea;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -86,6 +290,11 @@
 			dependencies = (
 			);
 			name = "CINEMAX App";
+			packageProductDependencies = (
+				E34931C52C4BECDA00138466 /* Kingfisher */,
+				E34931C82C4BECE000138466 /* SnapKit */,
+				E34931CA2C4BECE000138466 /* SnapKit-Dynamic */,
+			);
 			productName = "CINEMAX App";
 			productReference = E34931722C4BE93000138466 /* CINEMAX App.app */;
 			productType = "com.apple.product-type.application";
@@ -114,6 +323,10 @@
 				Base,
 			);
 			mainGroup = E34931692C4BE93000138466;
+			packageReferences = (
+				E34931C42C4BECDA00138466 /* XCRemoteSwiftPackageReference "Kingfisher" */,
+				E34931C72C4BECE000138466 /* XCRemoteSwiftPackageReference "SnapKit" */,
+			);
 			productRefGroup = E34931732C4BE93000138466 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -130,7 +343,12 @@
 			files = (
 				E34931852C4BE93200138466 /* LaunchScreen.storyboard in Resources */,
 				E34931822C4BE93200138466 /* Assets.xcassets in Resources */,
-				E349317D2C4BE93000138466 /* Main.storyboard in Resources */,
+				E34931AD2C4BEBEA00138466 /* Montserrat-SemiBold.ttf in Resources */,
+				E34931AE2C4BEBEA00138466 /* Montserrat-Regular.ttf in Resources */,
+				E34931AF2C4BEBEA00138466 /* Montserrat-Medium.ttf in Resources */,
+				E34931B12C4BEBEA00138466 /* Montserrat-ExtraBold.ttf in Resources */,
+				E34931AC2C4BEBEA00138466 /* Montserrat-Bold.ttf in Resources */,
+				E34931B02C4BEBEA00138466 /* Montserrat-Thin.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -141,24 +359,29 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E349317A2C4BE93000138466 /* ViewController.swift in Sources */,
+				E34931C32C4BECB200138466 /* OnboardingCell.swift in Sources */,
+				E34931A32C4BEBA700138466 /* MovieResponse.swift in Sources */,
+				E34931B72C4BEC0300138466 /* UITableViewCell+Extension.swift in Sources */,
+				E34931A12C4BEB8900138466 /* OnboardingData.swift in Sources */,
+				E34931C12C4BECA400138466 /* OnboardingDataSource.swift in Sources */,
+				E34931B82C4BEC0300138466 /* UIColor+Extension.swift in Sources */,
+				E349317A2C4BE93000138466 /* OnboardingViewController.swift in Sources */,
+				E34931BB2C4BEC1B00138466 /* Constraints.swift in Sources */,
 				E34931802C4BE93000138466 /* CINEMAX_App.xcdatamodeld in Sources */,
+				E349319F2C4BEB5600138466 /* MovieManager.swift in Sources */,
+				E34931BF2C4BEC9000138466 /* OnboardingViewModelProtocol.swift in Sources */,
 				E34931762C4BE93000138466 /* AppDelegate.swift in Sources */,
+				E34931B32C4BEBF400138466 /* UIFont+Extension.swift in Sources */,
+				E34931BD2C4BEC4B00138466 /* NetworkManager.swift in Sources */,
+				E34931A52C4BEBB200138466 /* Movie.swift in Sources */,
 				E34931782C4BE93000138466 /* SceneDelegate.swift in Sources */,
+				E34931B92C4BEC0300138466 /* UITableView+Extension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		E349317B2C4BE93000138466 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				E349317C2C4BE93000138466 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		E34931832C4BE93200138466 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -297,10 +520,9 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "CINEMAX App/Info.plist";
+				INFOPLIST_FILE = "CINEMAX App/Supporting File/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -324,10 +546,9 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "CINEMAX App/Info.plist";
+				INFOPLIST_FILE = "CINEMAX App/Supporting File/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -365,6 +586,43 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		E34931C42C4BECDA00138466 /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/onevcat/Kingfisher";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 7.12.0;
+			};
+		};
+		E34931C72C4BECE000138466 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SnapKit/SnapKit";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.7.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		E34931C52C4BECDA00138466 /* Kingfisher */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E34931C42C4BECDA00138466 /* XCRemoteSwiftPackageReference "Kingfisher" */;
+			productName = Kingfisher;
+		};
+		E34931C82C4BECE000138466 /* SnapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E34931C72C4BECE000138466 /* XCRemoteSwiftPackageReference "SnapKit" */;
+			productName = SnapKit;
+		};
+		E34931CA2C4BECE000138466 /* SnapKit-Dynamic */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E34931C72C4BECE000138466 /* XCRemoteSwiftPackageReference "SnapKit" */;
+			productName = "SnapKit-Dynamic";
+		};
+/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
 		E349317E2C4BE93000138466 /* CINEMAX_App.xcdatamodeld */ = {
