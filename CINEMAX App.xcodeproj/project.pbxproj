@@ -237,6 +237,7 @@
 		E34931992C4BEA6800138466 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				E358F6992C4D92AA007D96F2 /* HomeMoviesView */,
 				E349319A2C4BEA7900138466 /* OnboardingView */,
 			);
 			path = Scenes;
@@ -283,6 +284,37 @@
 				E358F6972C4D62C3007D96F2 /* CustomPageController.swift */,
 			);
 			path = CustomPageController;
+			sourceTree = "<group>";
+		};
+		E358F6992C4D92AA007D96F2 /* HomeMoviesView */ = {
+			isa = PBXGroup;
+			children = (
+				E358F69A2C4D93FB007D96F2 /* HomeViewController */,
+				E358F69C2C4D942A007D96F2 /* HomeViewModel */,
+				E358F69B2C4D940C007D96F2 /* HomeViewCell */,
+			);
+			path = HomeMoviesView;
+			sourceTree = "<group>";
+		};
+		E358F69A2C4D93FB007D96F2 /* HomeViewController */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = HomeViewController;
+			sourceTree = "<group>";
+		};
+		E358F69B2C4D940C007D96F2 /* HomeViewCell */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = HomeViewCell;
+			sourceTree = "<group>";
+		};
+		E358F69C2C4D942A007D96F2 /* HomeViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = HomeViewModel;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
