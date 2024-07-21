@@ -235,7 +235,6 @@
 			isa = PBXGroup;
 			children = (
 				E34931792C4BE93000138466 /* OnboardingViewController.swift */,
-				E349319D2C4BEA9900138466 /* Moviea */,
 				E349319A2C4BEA7900138466 /* OnboardingView */,
 			);
 			path = Scenes;
@@ -265,13 +264,6 @@
 				E34931C02C4BECA400138466 /* OnboardingDataSource.swift */,
 			);
 			path = OnboardingViewModel;
-			sourceTree = "<group>";
-		};
-		E349319D2C4BEA9900138466 /* Moviea */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Moviea;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
