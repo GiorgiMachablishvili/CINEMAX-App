@@ -7,18 +7,22 @@
 
 import UIKit
 
-class OnboardingDataSource: NSObject, UICollectionViewDataSource {
-    private var tableView: UITableView
+class OnboardingDataSource: NSObject, UICollectionViewDelegate, UICollectionViewDataSource {
+    private var collectionView: UICollectionView
     private var viewModel: OnboardingViewModelProtocol?
     
-    init(tableView: UITableView, viewModel: OnboardingViewModelProtocol) {
-        self.tableView = tableView
+    init(collectionView: UICollectionView, viewModel: OnboardingViewModelProtocol) {
+        self.collectionView = collectionView
         self.viewModel = viewModel
         
         super.init()
-        self.tableView.dataSource
-        self.tableView.delegate
-        self.tableView.register(OnboardingCell.self, forCellReuseIdentifier: "OnboardingCell")
+        self.collectionView.dataSource = self
+        self.collectionView.delegate = self
+        self.collectionView.register(OnboardingCell.self, forCellWithReuseIdentifier: "OnboardingCell")
+    }
+    
+    func pageController() {
+        
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -26,8 +30,11 @@ class OnboardingDataSource: NSObject, UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "OnboardingCell", for: indexPath) as! OnboardingCell
-//        cell.config(with: indexPath.row)
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "OnboardingCell", for: indexPath) as! OnboardingCell
+        if let data = viewModel?.OnboardingItems[indexPath.row] {
+            cell.config(with: data)
+        }
         return cell
     }
+
 }
