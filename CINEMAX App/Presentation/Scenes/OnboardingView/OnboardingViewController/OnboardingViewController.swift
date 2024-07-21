@@ -83,9 +83,8 @@ class OnboardingViewController: UIViewController {
             collectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
             pageControl.currentPage = nextIndex
         } else {
-//            let vc = HomeScreenView()
-//            navigationController?.pushViewController(vc, animated: false)
-            print("go")
+            let vc = HomeViewController()
+            navigationController?.pushViewController(vc, animated: false)
         }
     }
 }

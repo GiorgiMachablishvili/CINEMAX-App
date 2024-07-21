@@ -36,6 +36,10 @@
 		E34931C92C4BECE000138466 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = E34931C82C4BECE000138466 /* SnapKit */; };
 		E34931CB2C4BECE000138466 /* SnapKit-Dynamic in Frameworks */ = {isa = PBXBuildFile; productRef = E34931CA2C4BECE000138466 /* SnapKit-Dynamic */; };
 		E358F6982C4D62C3007D96F2 /* CustomPageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E358F6972C4D62C3007D96F2 /* CustomPageController.swift */; };
+		E358F69E2C4D95F3007D96F2 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E358F69D2C4D95F3007D96F2 /* HomeViewController.swift */; };
+		E358F6A02C4D961D007D96F2 /* HomeViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E358F69F2C4D961D007D96F2 /* HomeViewCell.swift */; };
+		E358F6A22C4D9645007D96F2 /* HomeViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = E358F6A12C4D9645007D96F2 /* HomeViewDataSource.swift */; };
+		E358F6A42C4D965E007D96F2 /* HomeViewModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = E358F6A32C4D965E007D96F2 /* HomeViewModelProtocol.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -67,6 +71,10 @@
 		E34931C02C4BECA400138466 /* OnboardingDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardingDataSource.swift; sourceTree = "<group>"; };
 		E34931C22C4BECB200138466 /* OnboardingCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardingCell.swift; sourceTree = "<group>"; };
 		E358F6972C4D62C3007D96F2 /* CustomPageController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomPageController.swift; sourceTree = "<group>"; };
+		E358F69D2C4D95F3007D96F2 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		E358F69F2C4D961D007D96F2 /* HomeViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewCell.swift; sourceTree = "<group>"; };
+		E358F6A12C4D9645007D96F2 /* HomeViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewDataSource.swift; sourceTree = "<group>"; };
+		E358F6A32C4D965E007D96F2 /* HomeViewModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModelProtocol.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -299,6 +307,7 @@
 		E358F69A2C4D93FB007D96F2 /* HomeViewController */ = {
 			isa = PBXGroup;
 			children = (
+				E358F69D2C4D95F3007D96F2 /* HomeViewController.swift */,
 			);
 			path = HomeViewController;
 			sourceTree = "<group>";
@@ -306,6 +315,7 @@
 		E358F69B2C4D940C007D96F2 /* HomeViewCell */ = {
 			isa = PBXGroup;
 			children = (
+				E358F69F2C4D961D007D96F2 /* HomeViewCell.swift */,
 			);
 			path = HomeViewCell;
 			sourceTree = "<group>";
@@ -313,6 +323,8 @@
 		E358F69C2C4D942A007D96F2 /* HomeViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				E358F6A32C4D965E007D96F2 /* HomeViewModelProtocol.swift */,
+				E358F6A12C4D9645007D96F2 /* HomeViewDataSource.swift */,
 			);
 			path = HomeViewModel;
 			sourceTree = "<group>";
@@ -404,20 +416,24 @@
 			files = (
 				E34931C32C4BECB200138466 /* OnboardingCell.swift in Sources */,
 				E34931A32C4BEBA700138466 /* MovieResponse.swift in Sources */,
+				E358F69E2C4D95F3007D96F2 /* HomeViewController.swift in Sources */,
 				E34931B72C4BEC0300138466 /* UITableViewCell+Extension.swift in Sources */,
 				E358F6982C4D62C3007D96F2 /* CustomPageController.swift in Sources */,
 				E34931A12C4BEB8900138466 /* OnboardingData.swift in Sources */,
 				E34931C12C4BECA400138466 /* OnboardingDataSource.swift in Sources */,
+				E358F6A42C4D965E007D96F2 /* HomeViewModelProtocol.swift in Sources */,
 				E34931B82C4BEC0300138466 /* UIColor+Extension.swift in Sources */,
 				E349317A2C4BE93000138466 /* OnboardingViewController.swift in Sources */,
 				E34931BB2C4BEC1B00138466 /* Constraints.swift in Sources */,
 				E34931802C4BE93000138466 /* CINEMAX_App.xcdatamodeld in Sources */,
 				E349319F2C4BEB5600138466 /* MovieManager.swift in Sources */,
+				E358F6A22C4D9645007D96F2 /* HomeViewDataSource.swift in Sources */,
 				E34931BF2C4BEC9000138466 /* OnboardingViewModelProtocol.swift in Sources */,
 				E34931762C4BE93000138466 /* AppDelegate.swift in Sources */,
 				E34931B32C4BEBF400138466 /* UIFont+Extension.swift in Sources */,
 				E34931BD2C4BEC4B00138466 /* NetworkManager.swift in Sources */,
 				E34931A52C4BEBB200138466 /* Movie.swift in Sources */,
+				E358F6A02C4D961D007D96F2 /* HomeViewCell.swift in Sources */,
 				E34931782C4BE93000138466 /* SceneDelegate.swift in Sources */,
 				E34931B92C4BEC0300138466 /* UITableView+Extension.swift in Sources */,
 			);
