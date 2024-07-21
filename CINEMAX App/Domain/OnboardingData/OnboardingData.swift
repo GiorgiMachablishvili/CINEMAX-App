@@ -11,5 +11,4 @@ struct OnboardingData {
     let image: UIImage
     let title: String
     let description: String
-//    let button: UIButton
 }

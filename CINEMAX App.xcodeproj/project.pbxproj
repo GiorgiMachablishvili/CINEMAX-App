@@ -35,6 +35,7 @@
 		E34931C62C4BECDA00138466 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = E34931C52C4BECDA00138466 /* Kingfisher */; };
 		E34931C92C4BECE000138466 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = E34931C82C4BECE000138466 /* SnapKit */; };
 		E34931CB2C4BECE000138466 /* SnapKit-Dynamic in Frameworks */ = {isa = PBXBuildFile; productRef = E34931CA2C4BECE000138466 /* SnapKit-Dynamic */; };
+		E358F6982C4D62C3007D96F2 /* CustomPageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E358F6972C4D62C3007D96F2 /* CustomPageController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -65,6 +66,7 @@
 		E34931BE2C4BEC9000138466 /* OnboardingViewModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewModelProtocol.swift; sourceTree = "<group>"; };
 		E34931C02C4BECA400138466 /* OnboardingDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardingDataSource.swift; sourceTree = "<group>"; };
 		E34931C22C4BECB200138466 /* OnboardingCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardingCell.swift; sourceTree = "<group>"; };
+		E358F6972C4D62C3007D96F2 /* CustomPageController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomPageController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -140,6 +142,7 @@
 		E349318F2C4BE9D000138466 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				E358F6962C4D62A5007D96F2 /* CustomPageController */,
 				E34931972C4BEA3300138466 /* Fonts */,
 				E34931962C4BEA2500138466 /* Extensions */,
 				E34931952C4BEA1A00138466 /* Helper */,
@@ -234,7 +237,6 @@
 		E34931992C4BEA6800138466 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
-				E34931792C4BE93000138466 /* OnboardingViewController.swift */,
 				E349319A2C4BEA7900138466 /* OnboardingView */,
 			);
 			path = Scenes;
@@ -243,6 +245,7 @@
 		E349319A2C4BEA7900138466 /* OnboardingView */ = {
 			isa = PBXGroup;
 			children = (
+				E358F6952C4D5FD1007D96F2 /* OnboardingViewController */,
 				E349319C2C4BEA8900138466 /* OnboardingViewModel */,
 				E349319B2C4BEA8100138466 /* OnboardingCell */,
 			);
@@ -264,6 +267,22 @@
 				E34931C02C4BECA400138466 /* OnboardingDataSource.swift */,
 			);
 			path = OnboardingViewModel;
+			sourceTree = "<group>";
+		};
+		E358F6952C4D5FD1007D96F2 /* OnboardingViewController */ = {
+			isa = PBXGroup;
+			children = (
+				E34931792C4BE93000138466 /* OnboardingViewController.swift */,
+			);
+			path = OnboardingViewController;
+			sourceTree = "<group>";
+		};
+		E358F6962C4D62A5007D96F2 /* CustomPageController */ = {
+			isa = PBXGroup;
+			children = (
+				E358F6972C4D62C3007D96F2 /* CustomPageController.swift */,
+			);
+			path = CustomPageController;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -354,6 +373,7 @@
 				E34931C32C4BECB200138466 /* OnboardingCell.swift in Sources */,
 				E34931A32C4BEBA700138466 /* MovieResponse.swift in Sources */,
 				E34931B72C4BEC0300138466 /* UITableViewCell+Extension.swift in Sources */,
+				E358F6982C4D62C3007D96F2 /* CustomPageController.swift in Sources */,
 				E34931A12C4BEB8900138466 /* OnboardingData.swift in Sources */,
 				E34931C12C4BECA400138466 /* OnboardingDataSource.swift in Sources */,
 				E34931B82C4BEC0300138466 /* UIColor+Extension.swift in Sources */,
