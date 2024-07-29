@@ -9,6 +9,7 @@ import UIKit
 import SnapKit
 
 class DownloadCell: UICollectionViewCell, MovieSelectionDelegate {
+    
     var selectedMovie: MovieData?
     
     private lazy var shadowView: UIView = {
@@ -57,8 +58,8 @@ class DownloadCell: UICollectionViewCell, MovieSelectionDelegate {
         return view
     }()
     
-    private lazy var raitingView: RatingView = {
-        let view = RatingView()
+    private lazy var raitingView: RaitingView = {
+        let view = RaitingView()
         return view
         }()
     

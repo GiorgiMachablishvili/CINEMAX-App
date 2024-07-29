@@ -166,9 +166,9 @@ extension SearchViewController: UICollectionViewDelegate, UICollectionViewDataSo
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let selectedMovie = filteredMovies[indexPath.row]
         delegate?.didSelectMovie(selectedMovie)
-        let movieInfoVC = MoviewDetailsController()
-        movieInfoVC.selectedMovie = selectedMovie
-        navigationController?.pushViewController(movieInfoVC, animated: true)
+        let downloadVC = DownloadViewController()
+        downloadVC.selectedMovie = selectedMovie
+        navigationController?.pushViewController(downloadVC, animated: true)
     }
 }
 

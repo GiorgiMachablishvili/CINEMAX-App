@@ -1,14 +1,15 @@
 //
-//  PopularMoviesCell.swift
+//  BannerCell.swift
 //  CINEMAX App
 //
-//  Created by Gio's Mac on 24.07.24.
+//  Created by Gio's Mac on 23.07.24.
 //
 
 import UIKit
 import SnapKit
 
-class PopularMoviesCell: UICollectionViewCell {
+class BannerCell: UICollectionViewCell {
+    
     private lazy var shadowView: UIView = {
         let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
@@ -28,7 +29,7 @@ class PopularMoviesCell: UICollectionViewCell {
         view.backgroundColor = .systemBackground
         view.clipsToBounds = true
         view.contentMode = .scaleAspectFill
-        view.layer.cornerRadius = 14
+        view.layer.cornerRadius = 8
         return view
     }()
     
@@ -36,13 +37,17 @@ class PopularMoviesCell: UICollectionViewCell {
         let view = UILabel(frame: .zero)
         view.textColor = UIColor(hexString: "FFFFFF")
         view.font = UIFont.MontserratBold(size: 16)
-        view.numberOfLines = 1
-        view.textAlignment = .center
+        view.numberOfLines = 0
+        view.textAlignment = .left
         return view
     }()
     
-    private lazy var raitingView: RatingView = {
-        let view = RatingView()
+    private lazy var movieDataLabel: UILabel = {
+        let view = UILabel(frame: .zero)
+        view.textColor = UIColor(hexString: "EBEBEF")
+        view.font = UIFont.MontserratBold(size: 12)
+        view.numberOfLines = 1
+        view.textAlignment = .left
         return view
     }()
     
@@ -59,8 +64,8 @@ class PopularMoviesCell: UICollectionViewCell {
     private func setup() {
         addSubview(shadowView)
         shadowView.addSubview(posterImageView)
-        shadowView.addSubview(movieNameLabel)
-        shadowView.addSubview(raitingView)
+        posterImageView.addSubview(movieNameLabel)
+        posterImageView.addSubview(movieDataLabel)
     }
     
     private func layout() {
@@ -69,29 +74,27 @@ class PopularMoviesCell: UICollectionViewCell {
         }
         
         posterImageView.snp.remakeConstraints { make in
-            make.top.leading.trailing.equalToSuperview()
-            make.height.equalTo(178 * Constraint.yCoeff)
+            make.edges.equalToSuperview()
         }
         
         movieNameLabel.snp.remakeConstraints { make in
-            make.top.equalTo(posterImageView.snp.bottom).offset(12 * Constraint.yCoeff)
-            make.leading.equalTo(snp.leading).offset(8 * Constraint.xCoeff)
-            make.height.equalTo(17 * Constraint.yCoeff)
+            make.top.equalTo(snp.top).offset(79 * Constraint.yCoeff)
+            make.leading.equalTo(snp.leading).offset(16 * Constraint.xCoeff)
+            make.width.equalTo(214 * Constraint.xCoeff)
+            make.height.equalTo(40 * Constraint.yCoeff)
         }
         
-        raitingView.snp.remakeConstraints { make in
-            make.top.equalTo(posterImageView.snp.top).offset(8 * Constraint.yCoeff)
-            make.trailing.equalTo(posterImageView.snp.trailing).offset(-8 * Constraint.xCoeff)
-            make.width.equalTo(65 * Constraint.xCoeff)
-            make.height.equalTo(24 * Constraint.yCoeff)
+        movieDataLabel.snp.remakeConstraints { make in
+            make.top.equalTo(movieNameLabel.snp.bottom).offset(4 * Constraint.yCoeff)
+            make.leading.equalTo(snp.leading).offset(16 * Constraint.xCoeff)
+            make.width.equalTo(107 * Constraint.xCoeff)
+            make.height.equalTo(15 * Constraint.yCoeff)
         }
     }
     
-    func configurePopularMovies(with data: MovieData) {
+    func configure(with data: MovieData) {
         movieNameLabel.text = data.title
-        let doubleRaitingNumber = data.voteAverage
-        let roundedRaitingNumber = round(doubleRaitingNumber * 10) / 10
-        raitingView.setRaiting(roundedRaitingNumber)
+        movieDataLabel.text = data.releaseDate
         
         guard let url = URL(string: "https://image.tmdb.org/t/p/w500\(data.posterPath)") else { return }
         URLSession.shared.dataTask(with: url) { data, response, error in

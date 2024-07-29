@@ -15,8 +15,8 @@ class MoviesViewForSearchCell: UICollectionViewCell {
         return view
     }()
     
-    private lazy var raitingView: RatingView = {
-        let view = RatingView()
+    private lazy var raitingView: RaitingView = {
+        let view = RaitingView()
         return view
     }()
     

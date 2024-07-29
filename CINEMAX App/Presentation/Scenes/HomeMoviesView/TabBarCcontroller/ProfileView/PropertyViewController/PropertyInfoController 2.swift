@@ -48,13 +48,12 @@ class PropertyInfoController: UIViewController {
 //            forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader,
 //            withReuseIdentifier: GeneralViewHeaderReusableView.reuseIdentifier
 //        )
-//        collectionView.register(MoreCell.self, forCellWithReuseIdentifier: String(describing: MoreCell.self))
-//        collectionView.register(
-//            MoreReusableView.self,
-//            forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader,
-//            withReuseIdentifier: MoreReusableView.reuseIdentifier
-//        )
-        collectionView.register(MoreViewCell.self, forCellWithReuseIdentifier: String(describing: MoreViewCell.self))
+        collectionView.register(MoreCell.self, forCellWithReuseIdentifier: String(describing: MoreCell.self))
+        collectionView.register(
+            MoreReusableView.self,
+            forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader,
+            withReuseIdentifier: MoreReusableView.reuseIdentifier
+        )
         collectionView.register(LogOutButtonCell.self, forCellWithReuseIdentifier: String(describing: LogOutButtonCell.self))
         configureCompositionLayout()
     }
@@ -161,31 +160,23 @@ class PropertyInfoController: UIViewController {
     }
     
     private func MoreViewLayout() -> NSCollectionLayoutSection {
-        let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .absolute(260))
+        let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .absolute(48))
         let item = NSCollectionLayoutItem(layoutSize: itemSize)
         
-        let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .absolute(260))
+        let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .absolute(322))
         let group = NSCollectionLayoutGroup.vertical(layoutSize: groupSize, subitems: [item])
         
         let section = NSCollectionLayoutSection(group: group)
+        
+        // Adding the header to the General section
+        let headerSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .absolute(22))
+        let header = NSCollectionLayoutBoundarySupplementaryItem(
+            layoutSize: headerSize,
+            elementKind: UICollectionView.elementKindSectionHeader,
+            alignment: .top
+        )
+        section.boundarySupplementaryItems = [header]
         return section
-//        let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .absolute(48))
-//        let item = NSCollectionLayoutItem(layoutSize: itemSize)
-//        
-//        let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .absolute(322))
-//        let group = NSCollectionLayoutGroup.vertical(layoutSize: groupSize, subitems: [item])
-//        
-//        let section = NSCollectionLayoutSection(group: group)
-//        
-//        // Adding the header to the General section
-//        let headerSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .absolute(22))
-//        let header = NSCollectionLayoutBoundarySupplementaryItem(
-//            layoutSize: headerSize,
-//            elementKind: UICollectionView.elementKindSectionHeader,
-//            alignment: .top
-//        )
-//        section.boundarySupplementaryItems = [header]
-//        return section
     }
     
     private func LogOutLayout() -> NSCollectionLayoutSection {
@@ -235,7 +226,7 @@ extension PropertyInfoController: UICollectionViewDataSource, UICollectionViewDe
         case 3:
             return /*generalData.count*/ 1
         case 4:
-            return /*moreData.count*/ 1
+            return moreData.count
         case 5:
             return 1
         default:
@@ -260,9 +251,9 @@ extension PropertyInfoController: UICollectionViewDataSource, UICollectionViewDe
 //            cell.configure(with: data)
             return cell
         case 4:
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: String(describing: MoreViewCell.self), for: indexPath) as! MoreViewCell
-//            let data = moreData[indexPath.row]
-//            cell.configure(with: data)
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: String(describing: MoreCell.self), for: indexPath) as! MoreCell
+            let data = moreData[indexPath.row]
+            cell.configure(with: data)
             return cell
         case 5:
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: String(describing: LogOutButtonCell.self), for: indexPath) as! LogOutButtonCell
@@ -272,16 +263,16 @@ extension PropertyInfoController: UICollectionViewDataSource, UICollectionViewDe
         }
     }
     
-//    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
-//        guard kind == UICollectionView.elementKindSectionHeader else { return UICollectionReusableView() }
-//        
+    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
+        guard kind == UICollectionView.elementKindSectionHeader else { return UICollectionReusableView() }
+        
 //        if indexPath.section == 3 {
 //            let header = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: GeneralViewHeaderReusableView.reuseIdentifier, for: indexPath) as! GeneralViewHeaderReusableView
 //            return header
-//        } else  if indexPath.section == 4 {
-//            let header = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: MoreReusableView.reuseIdentifier, for: indexPath) as! MoreReusableView
-//            return header
-//        }
-//        return UICollectionReusableView()
-//    }
+        /*} else if*/ if indexPath.section == 4 {
+            let header = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: MoreReusableView.reuseIdentifier, for: indexPath) as! MoreReusableView
+            return header
+        }
+        return UICollectionReusableView()
+    }
 }
