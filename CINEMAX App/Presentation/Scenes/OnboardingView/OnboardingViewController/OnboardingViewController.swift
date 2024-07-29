@@ -35,15 +35,18 @@ class OnboardingViewController: UIViewController {
     private lazy var pageControl: CustomPageControl = {
         let view = CustomPageControl()
         view.numberOfPages = viewModel?.OnboardingItems.count ?? 0
+//        view.numberOfPages = 3
         view.currentPage = 0
         return view
     }()
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setup()
         layout()
         configureDataSource()
+        view.backgroundColor = UIColor(hexString: "1F1D2B")
     }
     
     private func setup() {
@@ -58,16 +61,16 @@ class OnboardingViewController: UIViewController {
         }
         
         primaryButton.snp.remakeConstraints { make in
-            make.trailing.equalTo(view.snp.trailing).offset(-24)
-            make.bottom.equalTo(view.snp.bottom).offset(-61)
-            make.width.height.equalTo(80)
+            make.trailing.equalTo(view.snp.trailing).offset(-24 * Constraint.yCoeff)
+            make.bottom.equalTo(view.snp.bottom).offset(-61 * Constraint.xCoeff)
+            make.width.height.equalTo(80 * Constraint.yCoeff)
         }
         
         pageControl.snp.remakeConstraints { make in
-            make.leading.equalTo(view.snp.leading).offset(24)
-            make.bottom.equalTo(view.snp.bottom).offset(-96)
-            make.width.equalTo(76)
-            make.height.equalTo(10)
+            make.leading.equalTo(view.snp.leading).offset(45 * Constraint.yCoeff)
+            make.bottom.equalTo(view.snp.bottom).offset(-96 * Constraint.xCoeff)
+            make.width.equalTo(76 * Constraint.xCoeff)
+            make.height.equalTo(10 * Constraint.yCoeff)
         }
     }
     
@@ -83,8 +86,9 @@ class OnboardingViewController: UIViewController {
             collectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
             pageControl.currentPage = nextIndex
         } else {
-            let vc = HomeViewController()
+            let vc = CustomTabBarController()
             navigationController?.pushViewController(vc, animated: false)
         }
     }
 }
+

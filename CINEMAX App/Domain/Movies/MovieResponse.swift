@@ -7,5 +7,5 @@
 
 import Foundation
 struct MovieResponse: Codable {
-    let results: [Movie]
+    let results: [MovieData]
 }

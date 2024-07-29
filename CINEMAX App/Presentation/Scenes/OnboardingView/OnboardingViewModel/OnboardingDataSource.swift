@@ -11,10 +11,10 @@ import SnapKit
 class OnboardingDataSource: NSObject, UICollectionViewDelegate, UICollectionViewDataSource {
     private var collectionView: UICollectionView
     private var viewModel: OnboardingViewModelProtocol?
-    private var pageControl: CustomPageControl
+    var pageControl: CustomPageControl
     private var primaryButton: UIButton
     
-    init(collectionView: UICollectionView, viewModel: OnboardingViewModelProtocol, pageControl: CustomPageControl, primaryButton: UIButton) {
+    init(collectionView: UICollectionView, viewModel: OnboardingViewModelProtocol, pageControl: CustomPageControl, primaryButton: UIButton ) {
         self.collectionView = collectionView
         self.viewModel = viewModel
         self.pageControl = pageControl
@@ -23,7 +23,7 @@ class OnboardingDataSource: NSObject, UICollectionViewDelegate, UICollectionView
         super.init()
         self.collectionView.dataSource = self
         self.collectionView.delegate = self
-        self.collectionView.register(OnboardingCell.self, forCellWithReuseIdentifier: "OnboardingCell")
+        self.collectionView.registerClass(class: OnboardingCell.self)
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -31,7 +31,7 @@ class OnboardingDataSource: NSObject, UICollectionViewDelegate, UICollectionView
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "OnboardingCell", for: indexPath) as! OnboardingCell
+        let cell = collectionView.deque(OnboardingCell.self, for: indexPath)
         if let data = viewModel?.OnboardingItems[indexPath.row] {
             cell.config(with: data)
         }
