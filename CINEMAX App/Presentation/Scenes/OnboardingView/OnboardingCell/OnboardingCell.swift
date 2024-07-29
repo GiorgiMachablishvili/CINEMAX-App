@@ -16,7 +16,7 @@ class OnboardingCell: UICollectionViewCell {
     
     private lazy var titleLabel: UILabel = {
         let view = UILabel(frame: .zero)
-        view.numberOfLines = 1
+        view.numberOfLines = 2
         view.textAlignment = .center
         view.font = UIFont.MontserratBold(size: 18)
         view.textColor = UIColor(hexString: "FFFFFF")
@@ -58,27 +58,26 @@ class OnboardingCell: UICollectionViewCell {
     private func layout() {
         imageView.snp.remakeConstraints { make in
             make.top.leading.trailing.equalToSuperview()
-            make.height.equalTo(421)
+            make.height.equalTo(421 * Constraint.yCoeff)
         }
         
         titleLabel.snp.remakeConstraints { make in
             make.centerX.equalTo(snp.centerX)
-            make.top.equalTo(imageView.snp.bottom).offset(46)
-            make.height.equalTo(58)
-            make.width.equalTo(264)
+            make.top.equalTo(imageView.snp.bottom).offset(46 * Constraint.yCoeff)
+            make.height.equalTo(58 * Constraint.yCoeff)
+            make.width.equalTo(264 * Constraint.xCoeff)
         }
         
         descriptionLabel.snp.remakeConstraints { make in
             make.centerX.equalTo(snp.centerX)
-            make.top.equalTo(titleLabel.snp.bottom).offset(14)
-            //            make.height.equalTo(58)
-            make.width.equalTo(264)
+            make.top.equalTo(titleLabel.snp.bottom).offset(14 * Constraint.yCoeff)
+            make.width.equalTo(264 * Constraint.xCoeff)
         }
         
         button.snp.remakeConstraints { make in
-            make.trailing.equalTo(snp.trailing).offset(-24)
-            make.bottom.equalTo(snp.bottom).offset(-61)
-            make.width.height.equalTo(80)
+            make.trailing.equalTo(snp.trailing).offset(-24 * Constraint.xCoeff)
+            make.bottom.equalTo(snp.bottom).offset(-61 * Constraint.yCoeff)
+            make.width.height.equalTo(80 * Constraint.xCoeff)
         }
     }
     
