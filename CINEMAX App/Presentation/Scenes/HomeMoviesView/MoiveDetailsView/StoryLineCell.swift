@@ -54,16 +54,16 @@ class StoryLineCell: UICollectionViewCell {
         }
         
         storyLineTitleLabel.snp.remakeConstraints { make in
-            make.top.equalTo(storyView.snp.top).offset(19)
-            make.leading.equalTo(storyView.snp.leading).offset(24)
-            make.height.equalTo(20)
+            make.top.equalTo(storyView.snp.top).offset(19 * Constraint.yCoeff)
+            make.leading.equalTo(storyView.snp.leading).offset(24 * Constraint.xCoeff)
+            make.height.equalTo(20 * Constraint.yCoeff)
         }
         
         storyLineLabel.snp.remakeConstraints { make in
             make.top.equalTo(storyLineTitleLabel.snp.bottom)
-            make.leading.equalTo(storyView.snp.leading).offset(24)
-            make.trailing.equalTo(storyView.snp.trailing).inset(24)
-            make.height.equalTo(102)
+            make.leading.equalTo(storyView.snp.leading).offset(24 * Constraint.xCoeff)
+            make.trailing.equalTo(storyView.snp.trailing).inset(24 * Constraint.xCoeff)
+            make.height.equalTo(102 * Constraint.yCoeff)
         }
     }
     

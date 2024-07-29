@@ -86,7 +86,7 @@ class MoviewDetailsController: UIViewController, MoviewDetailsCellDelegate {
         let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .fractionalHeight(1.0))
         let item = NSCollectionLayoutItem(layoutSize: itemSize)
         
-        let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(0.7), heightDimension: .absolute(200))
+        let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(0.7), heightDimension: .absolute(200 * Constraint.xCoeff))
         let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitems: [item])
         
         let section = NSCollectionLayoutSection(group: group)
@@ -101,6 +101,9 @@ class MoviewDetailsController: UIViewController, MoviewDetailsCellDelegate {
     
     func goDownloadPageButton() {
         let downloadVC = DownloadViewController()
+        if let movie = selectedMovie {
+            downloadVC.selectedMovie = movie
+        }
         navigationController?.pushViewController(downloadVC, animated: true)
     }
 }
@@ -124,7 +127,7 @@ extension MoviewDetailsController: UICollectionViewDataSource, UICollectionViewD
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         switch indexPath.section {
         case 0:
-            let cell = collectionView.deque(MoviewDetailsCell.self, for: indexPath)
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: String(describing: MoviewDetailsCell.self), for: indexPath) as! MoviewDetailsCell
             cell.delegate = self
             if let movie = selectedMovie {
                 cell.configure(with: movie)

@@ -28,6 +28,7 @@ class MoviewDetailsCell: UICollectionViewCell {
     private lazy var backButton: UIButton = {
         let view = UIButton(frame: .zero)
         view.setImage(UIImage(named: "backButton"), for: .normal)
+        view.isUserInteractionEnabled = true
         view.addTarget(self, action: #selector(backPage), for: .touchUpInside)
         return view
     }()
@@ -70,6 +71,7 @@ class MoviewDetailsCell: UICollectionViewCell {
     private lazy var downloadButton: UIButton = {
         let view = UIButton(frame: .zero)
         view.setImage(UIImage(named: "downloadButton"), for: .normal)
+        view.isUserInteractionEnabled = true
         return view
     }()
     
@@ -104,62 +106,62 @@ class MoviewDetailsCell: UICollectionViewCell {
     private func layout() {
         movieShadowView.snp.remakeConstraints { make in
             make.top.leading.trailing.equalToSuperview()
-            make.height.equalTo(552)
+            make.height.equalTo(552 * Constraint.xCoeff)
         }
         
         backButton.snp.remakeConstraints { make in
-            make.top.equalTo(movieShadowView.snp.top).offset(56)
-            make.leading.equalTo(movieShadowView.snp.leading).offset(28)
-            make.width.height.equalTo(24)
+            make.top.equalTo(movieShadowView.snp.top).offset(56 * Constraint.yCoeff)
+            make.leading.equalTo(movieShadowView.snp.leading).offset(28 * Constraint.xCoeff)
+            make.width.height.equalTo(24 * Constraint.xCoeff)
         }
         
         titleLabel.snp.remakeConstraints { make in
             make.centerY.equalTo(backButton.snp.centerY)
-            make.leading.equalTo(backButton.snp.trailing).offset(32)
-            make.width.equalTo(199)
-            make.height.equalTo(20)
+            make.leading.equalTo(backButton.snp.trailing).offset(32 * Constraint.xCoeff)
+            make.width.equalTo(199 * Constraint.xCoeff)
+            make.height.equalTo(20 * Constraint.yCoeff)
         }
         
         movieImage.snp.remakeConstraints { make in
             make.centerX.equalTo(movieShadowView.snp.centerX)
-            make.top.equalTo(movieShadowView.snp.top).offset(108)
-            make.width.equalTo(205)
-            make.height.equalTo(287)
+            make.top.equalTo(movieShadowView.snp.top).offset(108 * Constraint.yCoeff)
+            make.width.equalTo(205 * Constraint.xCoeff)
+            make.height.equalTo(287 * Constraint.yCoeff)
         }
 
         movieInfoView.snp.remakeConstraints { make in
             make.centerX.equalTo(movieImage.snp.centerX)
-            make.top.equalTo(movieImage.snp.bottom).offset(16)
-            make.width.equalTo(274)
-            make.height.equalTo(32)
+            make.top.equalTo(movieImage.snp.bottom).offset(16 * Constraint.yCoeff)
+            make.width.equalTo(274 * Constraint.xCoeff)
+            make.height.equalTo(32 * Constraint.xCoeff)
         }
         
         ratingView.snp.remakeConstraints { make in
             make.centerX.equalTo(movieInfoView.snp.centerX)
-            make.top.equalTo(movieInfoView.snp.bottom).offset(8)
-            make.width.equalTo(55)
-            make.height.equalTo(24)
+            make.top.equalTo(movieInfoView.snp.bottom).offset(8 * Constraint.yCoeff)
+            make.width.equalTo(55 * Constraint.xCoeff)
+            make.height.equalTo(24 * Constraint.yCoeff)
         }
         
         playButton.snp.remakeConstraints { make in
-            make.top.equalTo(ratingView.snp.bottom).offset(24)
-            make.leading.equalTo(movieShadowView.snp.leading).offset(65)
-            make.width.equalTo(115)
-            make.height.equalTo(48)
+            make.top.equalTo(ratingView.snp.bottom).offset(24 * Constraint.yCoeff)
+            make.leading.equalTo(movieShadowView.snp.leading).offset(65 * Constraint.xCoeff)
+            make.width.equalTo(115 * Constraint.xCoeff)
+            make.height.equalTo(48 * Constraint.yCoeff)
         }
         
         downloadButton.snp.remakeConstraints { make in
             make.centerY.equalTo(playButton.snp.centerY)
-            make.leading.equalTo(playButton.snp.trailing).offset(16)
-            make.width.equalTo(48)
-            make.height.equalTo(48)
+            make.leading.equalTo(playButton.snp.trailing).offset(16 * Constraint.xCoeff)
+            make.width.equalTo(48 * Constraint.xCoeff)
+            make.height.equalTo(48 * Constraint.yCoeff)
         }
         
         groupButtonButton.snp.remakeConstraints { make in
             make.centerY.equalTo(playButton.snp.centerY)
-            make.leading.equalTo(downloadButton.snp.trailing).offset(16)
-            make.width.equalTo(48)
-            make.height.equalTo(48)
+            make.leading.equalTo(downloadButton.snp.trailing).offset(16 * Constraint.xCoeff)
+            make.width.equalTo(48 * Constraint.xCoeff)
+            make.height.equalTo(48 * Constraint.yCoeff)
         }
     }
     

@@ -75,38 +75,38 @@ class MovieDetailsInfoView: UIView {
         }
         
         movieDataLabel.snp.remakeConstraints { make in
-            make.top.equalTo(infoView.snp.top).offset(8)
-            make.leading.equalTo(infoView.snp.leading).offset(12)
-            make.width.equalTo(47)
-            make.height.equalTo(16)
+            make.top.equalTo(infoView.snp.top).offset(8 * Constraint.yCoeff)
+            make.leading.equalTo(infoView.snp.leading).offset(12 * Constraint.xCoeff)
+            make.width.equalTo(47 * Constraint.xCoeff)
+            make.height.equalTo(16 * Constraint.yCoeff)
         }
         
         movieDataLine.snp.remakeConstraints { make in
             make.centerY.equalTo(movieDataLabel.snp.centerY)
-            make.leading.equalTo(movieDataLabel.snp.trailing).offset(12)
-            make.width.equalTo(0)
-            make.height.equalTo(1)
+            make.leading.equalTo(movieDataLabel.snp.trailing).offset(12 * Constraint.xCoeff)
+            make.width.equalTo(0 * Constraint.xCoeff)
+            make.height.equalTo(1 * Constraint.yCoeff)
         }
         
         movieDurationImage.snp.remakeConstraints { make in
-            make.top.equalTo(infoView.snp.top).offset(8)
-            make.leading.equalTo(movieDataLine.snp.trailing).offset(12)
-            make.width.equalTo(94)
-            make.height.equalTo(16)
+            make.top.equalTo(infoView.snp.top).offset(8 * Constraint.yCoeff)
+            make.leading.equalTo(movieDataLine.snp.trailing).offset(12 * Constraint.xCoeff)
+            make.width.equalTo(94 * Constraint.xCoeff)
+            make.height.equalTo(16 * Constraint.yCoeff)
         }
         
         durationLine.snp.remakeConstraints { make in
             make.centerY.equalTo(movieDurationImage.snp.centerY)
-            make.leading.equalTo(movieDurationImage.snp.trailing).offset(12)
-            make.width.equalTo(0)
-            make.height.equalTo(1)
+            make.leading.equalTo(movieDurationImage.snp.trailing).offset(12 * Constraint.xCoeff)
+            make.width.equalTo(0 * Constraint.xCoeff)
+            make.height.equalTo(1 * Constraint.yCoeff)
         }
         
         actionLabel.snp.remakeConstraints { make in
             make.centerY.equalTo(movieDurationImage.snp.centerY)
-            make.leading.equalTo(durationLine.snp.trailing).offset(12)
-            make.width.equalTo(61)
-            make.height.equalTo(16)
+            make.leading.equalTo(durationLine.snp.trailing).offset(12 * Constraint.xCoeff)
+            make.width.equalTo(61 * Constraint.xCoeff)
+            make.height.equalTo(16 * Constraint.yCoeff)
         }
     }
 }
