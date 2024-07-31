@@ -14,7 +14,7 @@ class CustomPageControl: UIView {
       setupDots()
     }
   }
-  var currentPage: Int = 1 {
+  var currentPage: Int = 0 {
     didSet {
       updateDots()
     }
@@ -46,7 +46,7 @@ class CustomPageControl: UIView {
   // Update dots appearance
   private func updateDots() {
     for (index, dot) in dots.enumerated() {
-      if index + 1 == currentPage {
+      if index == currentPage {
         dot.backgroundColor = currentPageDotColor
         dot.frame.size = currentDotSize
       } else {
@@ -65,7 +65,7 @@ class CustomPageControl: UIView {
     let startX = (bounds.width - totalWidth) / 2
     var currentX = startX
     for (index, dot) in dots.enumerated() {
-      let dotSize = index + 1 == currentPage ? currentDotSize : otherDotSize
+      let dotSize = index == currentPage ? currentDotSize : otherDotSize
       dot.frame = CGRect(x: currentX, y: (bounds.height - dotSize.height) / 2, width: dotSize.width, height: dotSize.height)
       currentX += dotSize.width + dotSpacing
     }

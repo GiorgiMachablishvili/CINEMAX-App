@@ -14,6 +14,7 @@ class CategoryCell: UICollectionViewCell {
         didSet {
             guard let cellData else { return }
             categoryButtonTitle.text = cellData.buttonName
+            updateAppearance(isSelected: cellData.isSelected)
         }
     }
     
@@ -41,7 +42,7 @@ class CategoryCell: UICollectionViewCell {
         super.init(frame: frame)
         setup()
         layout()
-        addTapGesture()
+//        addTapGesture()
     }
     
     required init?(coder: NSCoder) {
@@ -62,22 +63,22 @@ class CategoryCell: UICollectionViewCell {
         
         categoryButtonTitle.snp.remakeConstraints { make in
             make.top.leading.trailing.bottom.equalToSuperview()
-            make.height.equalTo(15 * Constraint.yCoeff)
+//            make.height.equalTo(15 * Constraint.yCoeff)
         }
     }
     
-    private func addTapGesture() {
-        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(handleTap))
-        self.addGestureRecognizer(tapGesture)
-    }
+//    private func addTapGesture() {
+//        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(handleTap))
+//        self.addGestureRecognizer(tapGesture)
+//    }
     
-    @objc private func handleTap() {
-        self.isSelected.toggle()
-        updateAppearance()
-    }
+//    @objc private func handleTap() {
+//        self.isSelected.toggle()
+//        updateAppearance()
+//    }
     
-    private func updateAppearance() {
-        if self.isSelected {
+    private func updateAppearance(isSelected: Bool) {
+        if isSelected {
             categoryButtonTitle.textColor = UIColor(hexString: "12CDD9")
             shadowView.backgroundColor = UIColor(hexString: "252836")
         } else {
@@ -86,9 +87,9 @@ class CategoryCell: UICollectionViewCell {
         }
     }
     
-    override var isSelected: Bool {
-        didSet {
-            updateAppearance()
-        }
-    }
+//    override var isSelected: Bool {
+//        didSet {
+//            updateAppearance()
+//        }
+//    }
 }

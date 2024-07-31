@@ -22,6 +22,7 @@ class MoviewDetailsCell: UICollectionViewCell {
         let view = UIImageView(frame: .zero)
         view.backgroundColor = .systemBackground.withAlphaComponent(20)
         view.contentMode = .scaleAspectFill
+        view.isUserInteractionEnabled = true
         return view
     }()
     
@@ -47,6 +48,7 @@ class MoviewDetailsCell: UICollectionViewCell {
         view.clipsToBounds = true
         view.contentMode = .scaleAspectFill
         view.layer.cornerRadius = 8
+        view.isUserInteractionEnabled = true
         return view
     }()
     
@@ -64,13 +66,14 @@ class MoviewDetailsCell: UICollectionViewCell {
     private lazy var playButton: UIButton = {
         let view = UIButton(frame: .zero)
         view.setImage(UIImage(named: "playButton"), for: .normal)
-        view.addTarget(self, action: #selector(goDownloadPage), for: .touchUpInside)
+        
         return view
     }()
     
     private lazy var downloadButton: UIButton = {
         let view = UIButton(frame: .zero)
         view.setImage(UIImage(named: "downloadButton"), for: .normal)
+        view.addTarget(self, action: #selector(goDownloadPage), for: .touchUpInside)
         view.isUserInteractionEnabled = true
         return view
     }()

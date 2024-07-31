@@ -35,7 +35,6 @@ class OnboardingViewController: UIViewController {
     private lazy var pageControl: CustomPageControl = {
         let view = CustomPageControl()
         view.numberOfPages = viewModel?.OnboardingItems.count ?? 0
-//        view.numberOfPages = 3
         view.currentPage = 0
         return view
     }()

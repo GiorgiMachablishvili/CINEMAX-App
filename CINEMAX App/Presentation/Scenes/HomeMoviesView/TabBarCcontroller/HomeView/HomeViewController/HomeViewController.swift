@@ -19,6 +19,7 @@ class HomeViewController: UIViewController, UISearchBarDelegate {
         view.dataSource = self
         view.delegate = self
         view.backgroundColor = UIColor(hexString: "1F1D2B")
+        view.contentInset = .init(top: 0, left: 0, bottom: 40, right: 0)
         return view
     }()
     
@@ -46,11 +47,11 @@ class HomeViewController: UIViewController, UISearchBarDelegate {
         fetchMovies()
         
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
+        tapGesture.delegate = self
         view.addGestureRecognizer(tapGesture)
     }
     
     private func setup() {
-        collectionView.delegate = self
         collectionView.registerClass(class: HeaderCell.self)
         collectionView.registerClass(class: SearchBarCell.self)
         collectionView.registerClass(class: BannerCell.self)
@@ -251,7 +252,19 @@ class HomeViewController: UIViewController, UISearchBarDelegate {
         }
 }
 
-extension HomeViewController: UICollectionViewDataSource, UICollectionViewDelegate {
+extension HomeViewController: UICollectionViewDelegate {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        if indexPath.section == 3 {
+            for index in 0..<buttonCategoryData.count {
+                buttonCategoryData[index].isSelected = false
+            }
+            buttonCategoryData[indexPath.row].isSelected = true
+            collectionView.reloadData()
+        }
+    }
+}
+
+extension HomeViewController: UICollectionViewDataSource {
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 5
     }
@@ -334,6 +347,9 @@ extension HomeViewController: UICollectionViewDataSource, UICollectionViewDelega
         }
         return UICollectionReusableView()
     }
+
+    
+    
     
     // UIScrollViewDelegate methods
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
@@ -350,5 +366,11 @@ extension HomeViewController: UICollectionViewDataSource, UICollectionViewDelega
             ) as? BannerReusableView
             footer?.configureFooter(with: movies.count, currentPage: page)
         }
+    }
+}
+
+extension HomeViewController: UIGestureRecognizerDelegate {
+    func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldReceive touch: UITouch) -> Bool {
+        return touch.view == collectionView
     }
 }
