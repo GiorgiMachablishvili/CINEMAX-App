@@ -85,6 +85,7 @@ class OnboardingViewController: UIViewController {
             collectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
             pageControl.currentPage = nextIndex
         } else {
+            UserDefaults.standard.set(true, forKey: "isLoggedIn")
             let vc = CustomTabBarController()
             navigationController?.pushViewController(vc, animated: false)
         }

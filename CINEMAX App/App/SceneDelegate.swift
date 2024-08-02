@@ -13,13 +13,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
-        guard let windowScene = (scene as? UIWindowScene) else { return }
-        let window = UIWindow(windowScene: windowScene)
-        let viewController = OnboardingViewController()
-        let navigationController = UINavigationController(rootViewController: viewController)
-        window.rootViewController = navigationController
-        self.window = window
-        window.makeKeyAndVisible()
+       configureMainScene(scene)
     }
     
     func sceneDidDisconnect(_ scene: UIScene) {
@@ -52,7 +46,22 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // Save changes in the application's managed object context when the application transitions to the background.
         (UIApplication.shared.delegate as? AppDelegate)?.saveContext()
     }
-
-
+    
+    func configureMainScene(_ scene: UIScene) {
+        guard let windowScene = (scene as? UIWindowScene) else { return }
+        let window = UIWindow(windowScene: windowScene)
+        self.window = window
+        let isLoggedIn: Bool = UserDefaults.standard.value(forKey: "isLoggedIn") as? Bool ?? false
+        let rootViewController: UIViewController
+        if isLoggedIn {
+            let viewController = CustomTabBarController()
+            rootViewController = UINavigationController(rootViewController: viewController)
+        } else {
+            let viewController = OnboardingViewController()
+            rootViewController = UINavigationController(rootViewController: viewController)
+        }
+        window.rootViewController = rootViewController
+        window.makeKeyAndVisible()
+    }
 }
 

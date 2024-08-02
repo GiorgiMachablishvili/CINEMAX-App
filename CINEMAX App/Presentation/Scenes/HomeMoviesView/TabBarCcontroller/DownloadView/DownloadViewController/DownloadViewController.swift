@@ -12,8 +12,8 @@ class DownloadViewController: UIViewController, MovieSelectionDelegate {
     
     var selectedMovie: MovieData?
     
-    private var movies: [MovieData] = []
-    
+    private var movies: [MovieEntity] = []
+
     private lazy var collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         layout.itemSize = CGSize(width: 327, height: 107)
@@ -50,18 +50,32 @@ class DownloadViewController: UIViewController, MovieSelectionDelegate {
         layout()
         view.backgroundColor = UIColor(hexString: "1F1D2B")
         updateInfo()
+        fetchMovies()
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(fetchMovies), name: NSNotification.Name("MovieSelected"), object: nil)
     }
-    
+
     func didSelectMovie(_ movie: MovieData) {
         selectedMovie = movie
     }
     
+    @objc private func fetchMovies() {
+    let manager = CoreDataManager<MovieEntity>()
+    movies = manager.fetchAll()
+    collectionView.reloadData()
+  }
+
     private func setup() {
         view.addSubview(collectionView)
         view.addSubview(pageTitleLabel)
         view.addSubview(backButton)
     }
-    
+
+  override func viewWillAppear(_ animated: Bool) {
+    super.viewWillAppear(animated)
+    collectionView.reloadData()
+  }
+
     private func layout() {
         pageTitleLabel.snp.remakeConstraints { make in
             make.top.equalTo(view.snp.top).offset(58 * Constraint.yCoeff)
@@ -93,15 +107,13 @@ class DownloadViewController: UIViewController, MovieSelectionDelegate {
 }
 
 extension DownloadViewController: UICollectionViewDataSource, UICollectionViewDelegate {
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return selectedMovie == nil ? 0 : 1
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.deque(DownloadCell.self, for: indexPath)
-        if let movie = selectedMovie {
-            cell.configure(with: movie)
-        }
-        return cell
-    }
+  func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    return movies.count
+  }
+
+  func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+    let cell = collectionView.deque(DownloadCell.self, for: indexPath)
+    cell.configure(with: movies[indexPath.row])
+    return cell
+  }
 }

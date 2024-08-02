@@ -145,14 +145,14 @@ class DownloadCell: UICollectionViewCell, MovieSelectionDelegate {
         }
     }
     
-    func configure(with data: MovieData) {
+    func configure(with data: MovieEntity) {
         titleLabel.text = data.title
         
         let doubleRaitingNumber = data.voteAverage
         let roundedRaitingNumber = round(doubleRaitingNumber * 10) / 10
         raitingView.setRaiting(roundedRaitingNumber)
         
-        guard let url = URL(string: "https://image.tmdb.org/t/p/w500\(data.posterPath)") else { return }
+        guard let url = URL(string: "https://image.tmdb.org/t/p/w500\(data.posterPath ?? "")") else { return }
         URLSession.shared.dataTask(with: url) { data, response, error in
             if let data = data, error == nil {
                 DispatchQueue.main.async {

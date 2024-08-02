@@ -18,11 +18,17 @@ class MoviewDetailsCell: UICollectionViewCell {
     
     var selectedMovie: MovieData?
     
-    private lazy var movieShadowView: UIImageView = {
+    private lazy var coverImage: UIImageView = {
         let view = UIImageView(frame: .zero)
         view.backgroundColor = .systemBackground.withAlphaComponent(20)
         view.contentMode = .scaleAspectFill
         view.isUserInteractionEnabled = true
+        view.layer.masksToBounds = true
+        return view
+    }()
+    
+    private lazy var shadowWrapperView: UIView = {
+        let view = UIView(frame: .zero)
         return view
     }()
     
@@ -95,26 +101,31 @@ class MoviewDetailsCell: UICollectionViewCell {
     }
     
     private func setup() {
-        addSubview(movieShadowView)
-        movieShadowView.addSubview(backButton)
-        movieShadowView.addSubview(titleLabel)
-        movieShadowView.addSubview(movieImage)
-        movieShadowView.addSubview(movieInfoView)
-        movieShadowView.addSubview(ratingView)
-        movieShadowView.addSubview(playButton)
-        movieShadowView.addSubview(downloadButton)
-        movieShadowView.addSubview(groupButtonButton)
+        addSubview(coverImage)
+        coverImage.addSubview(shadowWrapperView)
+        shadowWrapperView.addSubview(backButton)
+        shadowWrapperView.addSubview(titleLabel)
+        shadowWrapperView.addSubview(movieImage)
+        shadowWrapperView.addSubview(movieInfoView)
+        shadowWrapperView.addSubview(ratingView)
+        shadowWrapperView.addSubview(playButton)
+        shadowWrapperView.addSubview(downloadButton)
+        shadowWrapperView.addSubview(groupButtonButton)
     }
     
     private func layout() {
-        movieShadowView.snp.remakeConstraints { make in
+        coverImage.snp.remakeConstraints { make in
             make.top.leading.trailing.equalToSuperview()
             make.height.equalTo(552 * Constraint.xCoeff)
         }
         
+        shadowWrapperView.snp.remakeConstraints { make in
+            make.edges.equalToSuperview()
+        }
+        
         backButton.snp.remakeConstraints { make in
-            make.top.equalTo(movieShadowView.snp.top).offset(56 * Constraint.yCoeff)
-            make.leading.equalTo(movieShadowView.snp.leading).offset(28 * Constraint.xCoeff)
+            make.top.equalTo(coverImage.snp.top).offset(56 * Constraint.yCoeff)
+            make.leading.equalTo(coverImage.snp.leading).offset(28 * Constraint.xCoeff)
             make.width.height.equalTo(24 * Constraint.xCoeff)
         }
         
@@ -126,8 +137,8 @@ class MoviewDetailsCell: UICollectionViewCell {
         }
         
         movieImage.snp.remakeConstraints { make in
-            make.centerX.equalTo(movieShadowView.snp.centerX)
-            make.top.equalTo(movieShadowView.snp.top).offset(108 * Constraint.yCoeff)
+            make.centerX.equalTo(coverImage.snp.centerX)
+            make.top.equalTo(coverImage.snp.top).offset(108 * Constraint.yCoeff)
             make.width.equalTo(205 * Constraint.xCoeff)
             make.height.equalTo(287 * Constraint.yCoeff)
         }
@@ -148,7 +159,7 @@ class MoviewDetailsCell: UICollectionViewCell {
         
         playButton.snp.remakeConstraints { make in
             make.top.equalTo(ratingView.snp.bottom).offset(24 * Constraint.yCoeff)
-            make.leading.equalTo(movieShadowView.snp.leading).offset(65 * Constraint.xCoeff)
+            make.leading.equalTo(coverImage.snp.leading).offset(65 * Constraint.xCoeff)
             make.width.equalTo(115 * Constraint.xCoeff)
             make.height.equalTo(48 * Constraint.yCoeff)
         }
@@ -168,22 +179,41 @@ class MoviewDetailsCell: UICollectionViewCell {
         }
     }
     
+    override func layoutSublayers(of layer: CALayer) {
+        super.layoutSublayers(of: layer)
+        applyGradient()
+    }
+    
+    
     func configure(with data: MovieData) {
         titleLabel.text = data.title
         
         let doubleRaitingNumber = data.voteAverage
         let roundedRaitingNumber = round(doubleRaitingNumber * 10) / 10
         ratingView.setRaiting(roundedRaitingNumber)
+//        applyGradient()
         
         guard let url = URL(string: "https://image.tmdb.org/t/p/w500\(data.posterPath)") else { return }
         URLSession.shared.dataTask(with: url) { data, response, error in
             if let data = data, error == nil {
                 DispatchQueue.main.async {
-                    self.movieShadowView.image = UIImage(data: data)
+                    self.coverImage.image = UIImage(data: data)
                     self.movieImage.image = UIImage(data: data)
                 }
             }
         }.resume()
+    }
+    
+    private func applyGradient() {
+        let gradient: CAGradientLayer = CAGradientLayer()
+        
+        gradient.colors = [UIColor(hexString: "1F1D2B").withAlphaComponent(0.2).cgColor, UIColor(hexString: "1F1D2B").cgColor]
+        gradient.locations = [0.0, 1.0]
+        gradient.startPoint = CGPoint(x: 0.5, y: 0.0)
+        gradient.endPoint = CGPoint(x: 0.5, y: 1.0)
+        gradient.frame = CGRect(x: 0.0, y: 0.0, width: self.shadowWrapperView.frame.size.width, height: self.shadowWrapperView.frame.size.height)
+        
+        self.shadowWrapperView.layer.insertSublayer(gradient, at: 0)
     }
     
     @objc func backPage() {

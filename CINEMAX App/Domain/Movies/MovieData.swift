@@ -6,6 +6,8 @@
 //
 
 import Foundation
+import CoreData
+
 struct MovieData: Codable {
     let title: String
     let overview: String
@@ -22,4 +24,17 @@ struct MovieData: Codable {
         case releaseDate = "release_date"
         case voteAverage = "vote_average"
     }
+}
+
+extension MovieData {
+  func toMovieEntity(context: NSManagedObjectContext) -> MovieEntity {
+    let entity = MovieEntity(context: context)
+    entity.title = title
+    entity.overview = overview
+    entity.popularity = popularity
+    entity.posterPath = posterPath
+    entity.releaseDate = releaseDate
+    entity.voteAverage = voteAverage
+    return entity
+  }
 }

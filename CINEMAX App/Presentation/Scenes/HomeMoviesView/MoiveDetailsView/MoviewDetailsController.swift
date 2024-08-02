@@ -100,11 +100,12 @@ class MoviewDetailsController: UIViewController, MoviewDetailsCellDelegate {
     }
     
     func goDownloadPageButton() {
-        let downloadVC = DownloadViewController()
-        if let movie = selectedMovie {
-            downloadVC.selectedMovie = movie
-        }
-        navigationController?.pushViewController(downloadVC, animated: true)
+      let downloadVC = DownloadViewController()
+      let manager = CoreDataManager<MovieEntity>()
+      guard let movie = selectedMovie else { return }
+      let movieEntity = movie.toMovieEntity(context: CoreDataStack.shared.context)
+      manager.save(movieEntity)
+      navigationController?.pushViewController(downloadVC, animated: true)
     }
 }
 

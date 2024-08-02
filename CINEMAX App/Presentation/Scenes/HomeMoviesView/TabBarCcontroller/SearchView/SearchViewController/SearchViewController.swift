@@ -57,6 +57,8 @@ class SearchViewController: UIViewController {
         addTapGestureRecogniser()
         collectionView.registerClass(class: MoviesViewForSearchCell.self)
         fetchMovies()
+        
+        NotificationCenter.default.post(name: NSNotification.Name("MovieSelected"), object: nil)
     }
     
     private func setup() {
@@ -165,10 +167,15 @@ extension SearchViewController: UICollectionViewDelegate, UICollectionViewDataSo
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let selectedMovie = filteredMovies[indexPath.row]
-        delegate?.didSelectMovie(selectedMovie)
-        let movieInfoVC = MoviewDetailsController()
-        movieInfoVC.selectedMovie = selectedMovie
-        navigationController?.pushViewController(movieInfoVC, animated: true)
+            delegate?.didSelectMovie(selectedMovie)
+
+            let movieEntity = selectedMovie.toMovieEntity(context: CoreDataStack.shared.context)
+            let manager = CoreDataManager<MovieEntity>()
+            manager.save(movieEntity)
+            
+            let movieInfoVC = MoviewDetailsController()
+            movieInfoVC.selectedMovie = selectedMovie
+            navigationController?.pushViewController(movieInfoVC, animated: true)
     }
 }
 
